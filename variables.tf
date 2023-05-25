@@ -1,49 +1,62 @@
 
 variable "aws_region" {
+  default = "us-east-1"
   description = "The AWS region to use"
 }
 variable "customer_prefix" {
+  default = "hfm-"
   description = "Customer Prefix to apply to all resources"
 }
 
 variable "environment" {
+  default = "lab"
   description = "The Tag Environment to differentiate prod/test/dev"
 }
 variable "availability_zone_1" {
+  default = "us-east-1a"
   description = "Availability Zone 1 for VPC"
 }
 
 variable "availability_zone_2" {
+  default = "us-east-1b"
   description = "Availability Zone 2 for VPC"
 }
 variable "fortigate_sg_name" {
+  default = "FGT-SG"
   description = "Fortigate Security Group Name"
 }
 variable "vpc_name_security" {
-    description = "Name of Security VPC"
+  default = "Security VPC"
+  description = "Name of Security VPC"
 }
 
 variable "vpc_name_east" {
+  default = "VPC - Spoke A"
     description = "Name of east VPC"
 }
 
 variable "vpc_name_west" {
+  default = "VPC - Spoke B"
     description = "Name of west VPC"
 }
 
 variable "vpc_cidr_security" {
+  default = "172.31.0.0/16"
     description = "CIDR for the whole security VPC"
 }
 
 variable "vpc_cidr_east" {
+  default = "172.30.50.0/24"
     description = "CIDR for the whole dev VPC"
 }
 
 variable "vpc_cidr_west" {
+  default = "172.30.60.0/24"
     description = "CIDR for the whole test VPC"
 }
 
 variable "public_subnet_cidr1" {
+  
     description = "CIDR for the Public 1 Subnet"
 }
 
@@ -171,18 +184,22 @@ variable "fortigate_instance_name_2" {
   description = "Instance Name for fortigate"
 }
 variable "create_transit_gateway" {
+  default = y
   description = "Boolean Create the transit gateway in this deployment. If TGW isn't created, neither will connected objects"
   type = bool
 }
 variable "create_management_elastic_ips" {
+  default = y
   description = "Boolean Create the elastic ips in the management subnet."
   type = bool
 }
 variable "create_public_elastic_ip" {
+  default = y
   description = "Boolean Create the failover elastic ip in the public subnet."
   type = bool
 }
 variable "use_fortigate_byol" {
+  default = y
   description = "Boolean Use the Fortigate BYOL AMI"
   type = bool
 }
@@ -193,15 +210,19 @@ variable "fortios_version" {
   description = "FortiOS Version for the AMI Search String"
 }
 variable "fgt_byol_1_license" {
+  default = "./licenses/fgt-byol.lic"
   description = "Fortigate license file"
 }
 variable "fgt_byol_2_license" {
+  default = "./licenses/fgt-byol.lic"
   description = "Fortigate license file"
 }
 variable "fgt_ha_password" {
+  default = "Vpn1234567890"
   description = "Fortigate HA Password"
 }
 variable "fgt_admin_password" {
+  #default = {instance_ID}
   description = "Fortigate Admin Password"
 }
 variable "fortigate_hostname_1" {
